@@ -1,6 +1,9 @@
 # KF_Tutorial
 DayZ Discord Killfeed code base.
 
+## Installation
+Download all files and extract node_modules folder from the zip file into the project directory
+
 ## Bot Commands
 !k1llfeed START (Invokes Killfeed)
 
