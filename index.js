@@ -134,7 +134,6 @@ bot.on('message', async message=> {
 							console.log(err.stack);
 			 			});
 
-						console.log(data);
 						if (data) {
 							for(let i = 0; i < data.length; i++){
 								data2.push(data[i]);
@@ -167,8 +166,6 @@ bot.on('message', async message=> {
 											.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
 											message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
 											tRef = dt0;
-										}else {
-											return;
 										}
 									}else {
 										var f4 = val[0].toString();
@@ -195,8 +192,6 @@ bot.on('message', async message=> {
 											.setDescription(`${f4} **${f5}** was ${f6} `)
 											message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
 											tRef = dt0;
-										}else {
-											return;
 										}
 									}
 								}
@@ -207,12 +202,12 @@ bot.on('message', async message=> {
 							data.splice(0, data.length);
 							console.log("Program Ended");
 						}
-						data.splice(0, data.length);
-						data2.splice(0, data2.length);
 					}else {
                         console.log("K1llfeed Paused!");
 						return;
 					}
+					data.splice(0, data.length);
+					data2.splice(0, data2.length);
 				}, 10000);
 		    }		
 		break;
