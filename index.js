@@ -47,7 +47,7 @@ bot.on('message', async message=> {
 		break;
 
 		//Start K1llFeed (Owner and Admin perms only)
-		case 'k1llfeed':
+		case 'killfeed':
 			if (!args[1]) return message.channel.send("Missing Server Argument!").then (message => message.delete({ timeout: 5000, }));
 			if (args[1] === 'PAUSE') {
                 if (!message.member.roles.cache.some(r => r.name === "Admin")) return message.channel.send('YOU DO NOT HAVE THE REQUIRED PERMISSIONS') .then (message => message.delete({ timeout: 5000, }));
@@ -138,60 +138,89 @@ bot.on('message', async message=> {
 							for(let i = 0; i < data.length; i++){
 								data2.push(data[i]);
 								for ( val of data2){
-									if (val[11]){
-										var f0 = val[0].toString();
-										var f1 = val[10].toString();
-										var f2 = val[2].toString();
-										var f3 = val[15].toString();
-										let f0a = f0.split(":")
-										let dt = new Date();
-										function getDate() {
-											dt.setHours(f0a[0]);
-											dt.setMinutes(f0a[1]);
-											dt.setSeconds(f0a[2]);
-											dt.setHours(dt.getHours() - 5);
-										}
-										getDate();
-										data2.splice(0, data2.length);
-										let dt0 = Math.round(dt.getTime() / 1000);
-										console.log(dt0);
-
-										if(dt0 != tRef && dt0 > tRef) {
-											const attachment = new Discord.MessageAttachment('./images/crown.png', 'crown.png');
-											const embed = new Discord.MessageEmbed()
-											.attachFiles(attachment)
-											.setThumbnail('attachment://crown.png')
-											.setColor(0xDD0000)
-											.setTitle('K1llFeed Notification')
-											.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
-											message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
-											tRef = dt0;
-										}
-									}else {
-										var f4 = val[0].toString();
-										var f5 = val[2].toString();
-										var f6 = val[9].toString();
-										let f4a = f4.split(":");
-										let dt = new Date();
-										function getDate() {
-											dt.setHours(f4a[0]);
-											dt.setMinutes(f4a[1]);
-											dt.setSeconds(f4a[2]);
-											dt.setHours(dt.getHours() - 5);
-										}
-										getDate();
-										data2.splice(0, data2.length);
-										let dt0 = Math.round(dt.getTime() / 1000);
-										if(dt0 != tRef && dt0 > tRef) {
-											const attachment = new Discord.MessageAttachment('./images/crown.png', 'crown.png');
-											const embed = new Discord.MessageEmbed()
-											.attachFiles(attachment)
-											.setThumbnail('attachment://crown.png')
-											.setColor(0xDD0000)
-											.setTitle('K1llFeed Notification')
-											.setDescription(`${f4} **${f5}** was ${f6} `)
-											message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
-											tRef = dt0;
+									for ( val of data2){
+										if (val[15]){
+											var f0 = val[0].toString();
+											var f1 = val[10].toString();
+											var f2 = val[2].toString();
+											var f3 = val[15].toString();
+											let f0a = f0.split(":")
+											let dt = new Date();
+											function getDate() {
+												dt.setHours(f0a[0]);
+												dt.setMinutes(f0a[1]);
+												dt.setSeconds(f0a[2]);
+												dt.toLocaleString();
+											}
+											getDate();
+											data2.splice(0, data2.length);
+											let dt0 = Math.round(dt.getTime() / 1000);
+											console.log(dt0);
+	
+											if(dt0 != tRef && dt0 > tRef) {
+												const attachment = new Discord.MessageAttachment('./images/crown.png', 'crown.png');
+												const embed = new Discord.MessageEmbed()
+												.attachFiles(attachment)
+												.setThumbnail('attachment://crown.png')
+												.setColor(0xDD0000)
+												.setTitle('K1llFeed Notification')
+												.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
+												message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
+												tRef = dt0;
+											}
+										}else if (val[13] && !val[15]) {
+											var f0 = val[0].toString();
+											var f1 = val[8].toString();
+											var f2 = val[2].toString();
+											var f3 = val[13].toString();
+											let f0a = f0.split(":");
+											let dt = new Date();
+											function getDate() {
+												dt.setHours(f0a[0]);
+												dt.setMinutes(f0a[1]);
+												dt.setSeconds(f0a[2]);
+												dt.toLocaleString();
+											}
+											getDate();
+											data2.splice(0, data2.length);
+											let dt0 = Math.round(dt.getTime() / 1000);
+											if(dt0 != tRef && dt0 > tRef) {
+												const attachment = new Discord.MessageAttachment('./images/crown.png', 'crown.png');
+												const embed = new Discord.MessageEmbed()
+												.attachFiles(attachment)
+												.setThumbnail('attachment://crown.png')
+												.setColor(0xDD0000)
+												.setTitle('K1llFeed Notification')
+												.setDescription(`${f0} **${f1}** Killed **${f2}** ${f3} `)
+												message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
+												tRef = dt0;
+											}
+										}else {
+											var f0 = val[0].toString();
+											var f1 = val[2].toString();
+											var f2 = val[9].toString();
+											let f0a = f0.split(":");
+											let dt = new Date();
+											function getDate() {
+												dt.setHours(f0a[0]);
+												dt.setMinutes(f0a[1]);
+												dt.setSeconds(f0a[2]);
+												dt.toLocaleString();
+											}
+											getDate();
+											data2.splice(0, data2.length);
+											let dt0 = Math.round(dt.getTime() / 1000);
+											if(dt0 != tRef && dt0 > tRef) {
+												const attachment = new Discord.MessageAttachment('./images/crown.png', 'crown.png');
+												const embed = new Discord.MessageEmbed()
+												.attachFiles(attachment)
+												.setThumbnail('attachment://crown.png')
+												.setColor(0xDD0000)
+												.setTitle('K1llFeed Notification')
+												.setDescription(`${f0} **${f1}** was ${f2}`)
+												message.channel.send(embed).then (message => message.delete({ timeout: 180000, }));
+												tRef = dt0;
+											}
 										}
 									}
 								}
