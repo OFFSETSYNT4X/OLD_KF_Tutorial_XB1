@@ -29,12 +29,12 @@ var today = new Date();
 
 bot.on('message', async message=> {
 	let args = message.content.substring(PREFIX.length).split(" ");
-	const ausername =  message.author.username;
-    const auserId = message.member.id;
-    const guildId = message.guild.id;
-    const guildName = message.guild.name;
-    const tuserId = Discord.User.id;
-	const members = message.guild.members.cache;
+	//const ausername =  message.author.username;
+    	//const auserId = message.member.id;
+    	//const guildId = message.guild.id;
+    	//const guildName = message.guild.name;
+    	//const tuserId = Discord.User.id;
+	//const members = message.guild.members.cache;
 	
 	switch(args[0]){			
 		// Clear Messages (Owner and Admin Perms Only )
